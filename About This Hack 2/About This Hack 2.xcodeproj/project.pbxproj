@@ -15,6 +15,7 @@
 		DC9548E329D3D73C005DF174 /* HardwareCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9548E229D3D73C005DF174 /* HardwareCollector.swift */; };
 		DCAABF7B29D3FAB400F43F30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCAABF7A29D3FAB400F43F30 /* Info.plist */; };
 		DCE50E7629D4B8EC0036CF16 /* ViewControllerMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */; };
+		DCE50E7929D4D4E30036CF16 /* ViewControllerCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE50E7829D4D4E30036CF16 /* ViewControllerCredits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		DC9548E229D3D73C005DF174 /* HardwareCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareCollector.swift; sourceTree = "<group>"; };
 		DCAABF7A29D3FAB400F43F30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMemory.swift; sourceTree = "<group>"; };
+		DCE50E7829D4D4E30036CF16 /* ViewControllerCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCredits.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,17 +62,26 @@
 		DC9548B529D3C91C005DF174 /* About This Hack 2 */ = {
 			isa = PBXGroup;
 			children = (
+				DCE50E7729D4D4C60036CF16 /* Controller */,
 				DC9548B629D3C91C005DF174 /* AppDelegate.swift */,
-				DC9548B829D3C91C005DF174 /* ViewController.swift */,
 				DC9548BA29D3C91E005DF174 /* Assets.xcassets */,
 				DC9548BC29D3C91E005DF174 /* Main.storyboard */,
 				DC9548BF29D3C91E005DF174 /* About_This_Hack_2.entitlements */,
 				DC9548E029D3D336005DF174 /* run.swift */,
 				DC9548E229D3D73C005DF174 /* HardwareCollector.swift */,
 				DCAABF7A29D3FAB400F43F30 /* Info.plist */,
-				DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */,
 			);
 			path = "About This Hack 2";
+			sourceTree = "<group>";
+		};
+		DCE50E7729D4D4C60036CF16 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DC9548B829D3C91C005DF174 /* ViewController.swift */,
+				DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */,
+				DCE50E7829D4D4E30036CF16 /* ViewControllerCredits.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				DC9548E129D3D336005DF174 /* run.swift in Sources */,
 				DC9548B929D3C91C005DF174 /* ViewController.swift in Sources */,
 				DCE50E7629D4B8EC0036CF16 /* ViewControllerMemory.swift in Sources */,
+				DCE50E7929D4D4E30036CF16 /* ViewControllerCredits.swift in Sources */,
 				DC9548B729D3C91C005DF174 /* AppDelegate.swift in Sources */,
 				DC9548E329D3D73C005DF174 /* HardwareCollector.swift in Sources */,
 			);
@@ -295,7 +307,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7XQ65R8AB5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -310,7 +322,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnworks.About-This-Hack-2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -328,7 +340,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 7XQ65R8AB5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -343,7 +355,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnworks.About-This-Hack-2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
