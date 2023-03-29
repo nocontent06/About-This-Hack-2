@@ -19,7 +19,6 @@ class ViewController: NSViewController {
     @IBOutlet weak var ram: NSTextField!
     @IBOutlet weak var startupDisk: NSTextField!
     @IBOutlet weak var serialNumber: NSTextField!
-    @IBOutlet weak var osPrefix: NSTextField!
     @IBOutlet weak var osVersion: NSTextField!
     @IBOutlet weak var systemVersion: NSTextField!
     @IBOutlet weak var display: NSTextField!
@@ -32,6 +31,7 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         start()
         // Do any additional setup after loading the view.
     }

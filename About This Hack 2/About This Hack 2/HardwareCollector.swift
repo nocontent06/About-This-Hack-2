@@ -165,7 +165,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
                 BootloaderInfo += run("echo \"(\"$(/usr/local/bin/bdmesg | grep -i \"Build with: \\[Args:\" | awk -F '\\-b' '{print $NF}' |  awk -F '\\-t' '{print $1 $2}' | awk  '{print $2}' | awk '{print toupper(substr($0,0,1))tolower(substr($0,2))}') $(/usr/local/bin/bdmesg | grep -i \"Build with: \\[Args:\" | awk -F '\\-b' '{print $NF}' |  awk -F '\\-t' '{print $1 $2}' | awk  '{print $1}' | awk '{print toupper(substr($0,0,1))tolower(substr($0,2))}')\")\"")
             }
             else {
-                BootloaderInfo = "OpenCore - Version: 0.9.0 (Release)"
+                BootloaderInfo = "Apple UEFI"
                 print("No Bootloader found; hiding menu")
             }
         }
@@ -324,7 +324,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
         // from https://everymac.com/systems/by_capability/mac-specs-by-machine-model-machine-id.html
         var infoString = run("sysctl hw.model | cut -f2 -d \" \" | tr -d '\n'")
         
-        // infoString = "Macmini8,1"
+        // infoString = "MacBookPro14,3"
         switch(infoString) {
             
         // iMacs
