@@ -12,4 +12,4 @@ In the [Releases-Tab](https://github.com/nocontent06/About-This-Hack-2/releases)
 - Not supported in any way in Linux or Windows
 
 # Credits
-@0xCUB3 - For providing basically everything except the "2" in the Title :P
+[0xCUB3](https://github.com/0xCUB3) - For providing basically everything except the "2" in the Title :P
