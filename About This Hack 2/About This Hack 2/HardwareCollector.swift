@@ -236,7 +236,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     
     static func getOSNum() -> String {
-        var osVersion = run("sw_vers | grep ProductVersion | awk '{print $2}'")
+        let osVersion = run("sw_vers | grep ProductVersion | awk '{print $2}'")
         return osVersion
     }
     
@@ -314,7 +314,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     
     static func getOSBuildNum() -> String {
-        var osBuildNum = run("system_profiler SPSoftwareDataType | grep 'System Version' | cut -c 29-")
+        let osBuildNum = run("system_profiler SPSoftwareDataType | grep 'System Version' | cut -c 29-")
         // osBuildNum = "10.5.8 (9L30)"
         return osBuildNum
     }
@@ -322,7 +322,9 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     static func getMacName() -> String {
         // from https://everymac.com/systems/by_capability/mac-specs-by-machine-model-machine-id.html
-        let infoString = run("sysctl hw.model | cut -f2 -d \" \" | tr -d '\n'")
+        var infoString = run("sysctl hw.model | cut -f2 -d \" \" | tr -d '\n'")
+        
+        // infoString = "Macmini8,1"
         switch(infoString) {
             
         // iMacs
@@ -679,10 +681,22 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     }
     
     static func getCPU() -> String {
-        let cpuBrandString = run("sysctl -n machdep.cpu.brand_string | sed 's/(R)//' | sed 's/(TM)//' | sed 's/ CPU//' | sed 's/@ .*GHz//' ").replacingOccurrences(of: "\n", with: "")
-        let ghzString = run("sysctl -n machdep.cpu.brand_string | sed 's/.*@ //' | sed 's/.00/ /'").replacingOccurrences(of: "\n", with: "")
-        let coreCound = run("system_profiler SPHardwareDataType | grep 'Processor Name' | sed 's/.*://' | sed 's/-.*/-Core/'").replacingOccurrences(of: "\n", with: "")
-        return "\(ghzString)\(coreCound) \(cpuBrandString)"
+        var cpuBrandStringOriginal = run("sysctl -n machdep.cpu.brand_string")
+        // cpuBrandStringOriginal = "Qualcommn Snapdragon 8 Gen 2+"
+        var returnValue = ""
+        
+        if (cpuBrandStringOriginal.hasPrefix("AMD")){
+            returnValue = cpuBrandStringOriginal
+        }
+        else {
+            let cpuBrandString = run("sysctl -n machdep.cpu.brand_string | sed 's/(R)//' | sed 's/(TM)//' | sed 's/ CPU//' | sed 's/@ .*GHz//' ").replacingOccurrences(of: "\n", with: "")
+            let ghzString = run("sysctl -n machdep.cpu.brand_string | sed 's/.*@ //' | sed 's/.00/ /'").replacingOccurrences(of: "\n", with: "")
+            let coreCound = run("system_profiler SPHardwareDataType | grep 'Processor Name' | sed 's/.*://' | sed 's/-.*/-Core/'").replacingOccurrences(of: "\n", with: "")
+            returnValue = "\(ghzString)\(coreCound) \(cpuBrandString)"
+        }
+        
+        return returnValue
+        
     }
     
     

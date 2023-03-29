@@ -12,7 +12,6 @@ class ViewController: NSViewController {
     
     
     // MARK: IBOutlets Overview:
-    
     @IBOutlet weak var picture: NSImageView!
     @IBOutlet weak var macModel: NSTextField!
     @IBOutlet weak var cpu: NSTextField!
