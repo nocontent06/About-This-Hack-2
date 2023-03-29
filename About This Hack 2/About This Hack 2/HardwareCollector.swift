@@ -33,6 +33,7 @@ class HardwareCollector {
     static var displayRes: [String] = []
     static var displayNames: [String] = []
     static var builtInDisplaySize: Float = 0
+    static var AdvancedRAMInfo: String = "RAM!"
     
     static func getAllData() {
         if (dataHasBeenSet) {return}
@@ -57,6 +58,7 @@ class HardwareCollector {
         queue.async {
             RAMString = getRAM()
             RAMCount = getRAMCount()
+            
         }
         queue.async {
             GPUString = getGPU()
@@ -77,6 +79,8 @@ class HardwareCollector {
         
         displayRes = getDisplayRes()
         displayNames = getDisplayNames()
+        
+        AdvancedRAMInfo = advancedRAMInfo()
         
         dataHasBeenSet = true
     }
@@ -680,6 +684,13 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
         }
     }
     
+    static func advancedRAMInfo() -> String {
+        let ramCount = run("system_profiler SPMemoryDataType | grep -c Size | tr -d '\n'").trimmingCharacters(in: .whitespacesAndNewlines)
+        let ramSpeed = run("system_profiler SPMemoryDataType | grep 'Speed' | grep 'MHz' | awk '{print $2\" \"$3}' | sed -n '1p'").trimmingCharacters(in: .whitespacesAndNewlines)
+        let ramType = run("system_profiler SPMemoryDataType | grep 'Type: DDR' | awk '{print $2}' | sed -n '1p'").trimmingCharacters(in: .whitespacesAndNewlines)
+        return "Your Mac contains \(ramCount) memory slots, each of which accepts a \(ramSpeed) \(ramType) memory module."
+    }
+    
     static func getCPU() -> String {
         var cpuBrandStringOriginal = run("sysctl -n machdep.cpu.brand_string")
         // cpuBrandStringOriginal = "Qualcommn Snapdragon 8 Gen 2+"
@@ -698,6 +709,8 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
         return returnValue
         
     }
+    
+
     
     
     

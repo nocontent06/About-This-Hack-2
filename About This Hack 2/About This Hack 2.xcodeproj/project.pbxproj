@@ -14,6 +14,7 @@
 		DC9548E129D3D336005DF174 /* run.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9548E029D3D336005DF174 /* run.swift */; };
 		DC9548E329D3D73C005DF174 /* HardwareCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9548E229D3D73C005DF174 /* HardwareCollector.swift */; };
 		DCAABF7B29D3FAB400F43F30 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCAABF7A29D3FAB400F43F30 /* Info.plist */; };
+		DCE50E7629D4B8EC0036CF16 /* ViewControllerMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DC9548E029D3D336005DF174 /* run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = run.swift; sourceTree = "<group>"; };
 		DC9548E229D3D73C005DF174 /* HardwareCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardwareCollector.swift; sourceTree = "<group>"; };
 		DCAABF7A29D3FAB400F43F30 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerMemory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				DC9548E029D3D336005DF174 /* run.swift */,
 				DC9548E229D3D73C005DF174 /* HardwareCollector.swift */,
 				DCAABF7A29D3FAB400F43F30 /* Info.plist */,
+				DCE50E7529D4B8EC0036CF16 /* ViewControllerMemory.swift */,
 			);
 			path = "About This Hack 2";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			files = (
 				DC9548E129D3D336005DF174 /* run.swift in Sources */,
 				DC9548B929D3C91C005DF174 /* ViewController.swift in Sources */,
+				DCE50E7629D4B8EC0036CF16 /* ViewControllerMemory.swift in Sources */,
 				DC9548B729D3C91C005DF174 /* AppDelegate.swift in Sources */,
 				DC9548E329D3D73C005DF174 /* HardwareCollector.swift in Sources */,
 			);
@@ -291,7 +295,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7XQ65R8AB5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -306,7 +310,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnworks.About-This-Hack-2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -324,7 +328,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 7XQ65R8AB5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,7 +343,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.johnworks.About-This-Hack-2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

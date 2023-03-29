@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import SwiftUI
 
 class ViewController: NSViewController {
     
@@ -23,6 +24,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var systemVersion: NSTextField!
     @IBOutlet weak var display: NSTextField!
     @IBOutlet weak var blVersion: NSTextField!
+
+    
+    
     
     var osNumber = run("sw_vers | grep ProductVersion | cut -c 17-")
     var modelID = "Mac"
@@ -91,6 +95,10 @@ class ViewController: NSViewController {
             break
         }
         
+        if let image = NSImage(named: "Ventura") {
+            picture.image = image
+        }
+
         osVersion.stringValue = HardwareCollector.OSname
         
         // macOS Version ID
@@ -121,6 +129,9 @@ class ViewController: NSViewController {
         blVersion.stringValue = HardwareCollector.BootloaderString
         blVersion.isHidden = false
         
+        // Ram Info
+        /// ramInfo.stringValue = HardwareCollector.AdvancedRAMInfo
+        
         
         func updateView() {
             picture.needsDisplay = true
@@ -147,5 +158,14 @@ class ViewController: NSViewController {
     @IBAction func showMoreInfo(_ sender: NSButton) {
         _ = run("open x-apple.systempreferences:com.apple.SystemProfiler.AboutExtension")
     }
+    @IBAction func showRAMInfo(_ sender: NSButton) {
+        _ = print("Clicked...")
+    }
+    
+    @IBAction func dismissScreen(_ sender: Any) {
+        print("Clicked...")
+        
+    }
 }
+
 
