@@ -11,3 +11,5 @@ In the [Releases-Tab](https://github.com/nocontent06/About-This-Hack-2/releases)
 - **10.11 El Capitan and newer**
 - Not supported in any way in Linux or Windows
 
+# Credits
+@0xCUB3 - For providing basically everything except the "2" in the Title :P
