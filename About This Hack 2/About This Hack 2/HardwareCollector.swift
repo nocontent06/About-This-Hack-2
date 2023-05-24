@@ -229,7 +229,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     static func getOSPrefix() -> String{
         switch OSvers {
-        case .LEOPARD,.MOUNTAIN_LION,.MAVERICKS,.YOSEMITE,.EL_CAPITAN:
+        case .MAVERICKS,.YOSEMITE,.EL_CAPITAN:
             return "OS X"
         case .SIERRA,.HIGH_SIERRA,.MOJAVE,.CATALINA,.BIG_SUR,.MONTEREY,.VENTURA,.macOS:
             return "macOS"
@@ -240,7 +240,10 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     
     static func getOSNum() -> String {
-        let osVersion = run("sw_vers | grep ProductVersion | awk '{print $2}'")
+        var osVersion = run("sw_vers | grep ProductVersion | awk '{print $2}'")
+       
+        osVersion = "10.15.6"
+        
         return osVersion
     }
     
@@ -254,31 +257,28 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
         else if (osNumber.hasPrefix("11")) {
             OSvers = macOSvers.BIG_SUR
         }
-        else if (osNumber.hasPrefix("10")) {
-            switch(osNumber) {
-            case "16":
+        else if osNumber.hasPrefix("10") {
+            if osNumber.contains("16") {
                 OSvers = macOSvers.BIG_SUR
-            case "15":
+            } else if osNumber.contains("15") {
                 OSvers = macOSvers.CATALINA
-            case "14":
+            } else if osNumber.contains("14") {
                 OSvers = macOSvers.MOJAVE
-            case "13":
+            } else if osNumber.contains("13") {
                 OSvers = macOSvers.HIGH_SIERRA
-            case "12":
+            } else if osNumber.contains("12") {
                 OSvers = macOSvers.SIERRA
-            case "11":
+            } else if osNumber.contains("11") {
                 OSvers = macOSvers.EL_CAPITAN
-            case "10":
+            } else if osNumber.contains("10") {
                 OSvers = macOSvers.YOSEMITE
-            case "9":
+            } else if osNumber.contains("9") {
                 OSvers = macOSvers.MAVERICKS
-            case "5":
-                OSvers = macOSvers.LEOPARD
-            default:
+            } else {
                 OSvers = macOSvers.macOS
             }
-            
         }
+
         else {
             OSvers = macOSvers.macOS
         }
@@ -287,10 +287,6 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
     
     static func macOSversToString() -> String {
         switch OSvers {
-        case .LEOPARD:
-            return "Leopard"
-        case .MOUNTAIN_LION:
-            return "Mountain Lion"
         case .MAVERICKS:
             return "Mavericks"
         case .YOSEMITE:
@@ -453,7 +449,7 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
             return "Mac Mini (Late 2014)"
         case "Macmini8,1":
             macType = .DESKTOP
-            return "Mac Mini (2018)"
+            return "Mac Mini (Late 2018)"
         case "Macmini9,1":
             macType = .DESKTOP
             return "Mac Mini (M1, 2020)"
@@ -622,6 +618,9 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
             return "MacBook Pro (14-inch, 2023)"
             
         // 15-inch Models
+        case "MacBookPro4,1":
+            builtInDisplaySize = 15
+            return "MacBook Pro (15/17-inch, Early/Late 2008)"
         case "MacBookPro6,2":
             builtInDisplaySize = 15
             return "MacBook Pro (15-inch, Mid 2010)"
@@ -721,8 +720,6 @@ echo "$(system_profiler SPDisplaysDataType | grep "        " | cut -c 9- | grep 
 
 
 enum macOSvers {
-    case LEOPARD
-    case MOUNTAIN_LION
     case MAVERICKS
     case YOSEMITE
     case EL_CAPITAN

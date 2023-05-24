@@ -85,18 +85,9 @@ class ViewController: NSViewController {
         case .MAVERICKS:
             picture.image = NSImage(named: "Mavericks")
             break
-        case .MOUNTAIN_LION:
-            picture.image = NSImage(named: "Mountain Lion")
-            break
-        case .LEOPARD:
-            picture.image = NSImage(named: "Leopard")
         case .macOS:
             picture.image = NSImage(named: "Unknown")
             break
-        }
-        
-        if let image = NSImage(named: "Ventura") {
-            picture.image = image
         }
 
         osVersion.stringValue = HardwareCollector.OSname
